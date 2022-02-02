@@ -1,0 +1,27 @@
+.btn{
+    background-color: var(--btn-color-primario);
+    color: var(--text-color-segundario);
+    padding: .5rem 3rem;
+    border: solid 2px transparent;
+    border-radius: 24px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: var(--btn-color-segundario);
+    color: var(--text-color-primario);
+    border: solid 2px black;
+}
+
+.input{
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    width: 100%;
+    height: 2rem;
+    padding: 10px 20px;
+    margin-top: 7px;
+}

@@ -1,0 +1,33 @@
+#seccion{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.seccion{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dos{
+    background-color: var(--btn-color-segundario);
+    color: var(--text-color-primario);
+    border: solid 2px black;
+}
+
+.dos:hover{
+    background-color: var(--btn-color-primario);
+    color: var(--text-color-segundario);
+    border: solid 2px transparent;
+}
+
+h1{
+    font-size: 50px;
+}
