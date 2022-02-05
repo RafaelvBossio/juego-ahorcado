@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 0px 10px 5px;
-    margin: auto;
+    margin: 0px auto;
     height: 100vh;
 }
 
@@ -21,26 +21,52 @@
     text-decoration: none;
     list-style: none;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+.palabra-clave ul li {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-.palabra-clave ul li{
-    display: flex;
-    margin: 0px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-}
-
-.palabra-clave ul img{
-    width: 30px;
-}
-
-.palabra-clave p{
-    font-size: 25px;
-    letter-spacing: 8px;
+.palabra-clave ul li p{
+    font-size: 3vh;
+    width: auto;
+    padding-left: 12px;
     text-align: center;
+}
+
+.palabra-clave ul li img{
+    width: 3vw;
+}
+
+.palabra-clave input{
+    width: 100%;
+    height: 30px;
+    margin: 5px 00px 10px;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    position:relative;
+    background-color: transparent;
+    text-transform: uppercase;
+}
+
+::placeholder{
+    color: rgba(0, 0, 255, 0.212);
+}
+
+.sub{
     display: flex;
     justify-content: center;
+    letter-spacing: 10px;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .canvas{
@@ -52,12 +78,13 @@
 
 .botones{
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 @media only screen and (min-width: 300px){
     .contenido{
         width: 90%;
+        padding: 0px;
     }
 
     .logoA img{
