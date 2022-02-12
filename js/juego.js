@@ -31,7 +31,6 @@ function giones(cantidad) {
   var fin = 600;
   
   for(var i = 0; i < cantidad; i++) {
-
     ctx.beginPath();
     ctx.moveTo(ma, mb);
     ctx.lineTo(inicio, fin);
@@ -46,6 +45,24 @@ function palabraElegida(){
   var random = Math.floor((Math.random() * palabras.length));
   var elegida = palabras[random];
   return random;
+}
+
+var posicion = [];
+var existe = false;
+var noExiste  = false;
+
+
+/*Falta terminar solo almacena las pociciones donde se encuentan las letras acertadas*/
+function correcta(opc){
+
+  for (var i = 0; i < palabra.length; i++){
+    if (opc == palabra[i]){
+      posicion.push(i);
+      existe = true;
+      console.log(palabra[i], i);
+      console.log(posicion);
+    }
+  }
 }
 
 giones(palabra.length);
@@ -129,5 +146,8 @@ desistir.addEventListener("click", function (event) {
   location.href = "../index.html";
 });
 
-texto.addEventListener("change", function () {
-});
+texto.addEventListener("change", function(){
+  var esta = this.value.toUpperCase();
+  correcta(esta);
+  this.value = "";
+})
