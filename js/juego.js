@@ -1,91 +1,133 @@
-var nuevo = document.querySelector("#nuevo-juego");
+var nuevo = document.querySelector("#nuevo");
 var desistir = document.querySelector("#desistir");
-var img = document.querySelector("#img");
-var ul2 = document.querySelector("#ul2");
-var secreta = document.querySelector("#secreta");
-var errores = document.querySelector("#errores");
-var letra = document.querySelector("#letra");
+var texto = document.querySelector("#texto");
+var pantalla = document.querySelector("canvas");
+var errores = 0;
+var ctx = pantalla.getContext("2d"); // necesario para poder empezar a dibujar en el canvas
 var palabras = [
-    "ALURA",
-    "JAVASCRIPT",
-    "CSS",
-    "HTML",
-    "ORACLE",
-    "RAFAEL",
-    "PROGRAMACION",
-    "VIAJES",
-    "SUEÑOS",
+  "ALURA",
+  "ORACLE",
+  "JAVASCRIPT",
+  "LATAM",
+  "PROGRAMACION",
+  "HTML",
+  "JUEGO",
+  "RAFAEL",
+  "MUNDO",
+  "AGUA",
+  "AMOR",
+  "CRECIMIENTO",
+  "ESPERANZA",
+  "RESPETO",
+  "UNION",
+  "GRUPO",
 ];
-var elegida = palabraSecreta();
-console.log(elegida);
+var palabra = palabras[palabraElegida()];
 
-function palabraSecreta() {
-  var randon = Math.floor(Math.random() * palabras.length);
-  var elegida = palabras[randon];
+function giones(cantidad) {
+  var ma = 600;
+  var mb = 600;
+  var inicio = 630;
+  var fin = 600;
   
-  return elegida;
+  for(var i = 0; i < cantidad; i++) {
+
+    ctx.beginPath();
+    ctx.moveTo(ma, mb);
+    ctx.lineTo(inicio, fin);
+    ctx.stroke();
+
+    ma += 45;
+    inicio += 45;
+  }
 }
 
-function crearGion(tipo, texto) {
-  var li = document.createElement(tipo);
-  var p1 = document.createElement("p");
-  var p2 = document.createElement("p");
-  p1.textContent = texto.toUpperCase();
-  var img = document.createElement("img");
-  img.src = "../img/_.png";
-  p2.appendChild(img);
-  li.appendChild(p1);
-  li.appendChild(p2);
-  return li;
+function palabraElegida(){
+  var random = Math.floor((Math.random() * palabras.length));
+  var elegida = palabras[random];
+  return random;
 }
 
-letra.addEventListener("change", function (event) {
-  event.preventDefault();
+giones(palabra.length);
 
-  ul2.appendChild(crearGion("li", this.value));
-  this.value = "";
-});
+/* Orca */
+fillStyle = "black";
+ctx.beginPath();
+ctx.moveTo(0, 750);
+ctx.lineTo(1200, 750);
+ctx.stroke();
+ctx.fill();
+
+setTimeout(function () {
+  ctx.beginPath();
+  ctx.moveTo(150, 750);
+  ctx.fillRect(100, 50, 20, 700);
+  ctx.stroke();
+}, 1000);
+
+setTimeout(function () {
+  ctx.beginPath();
+  ctx.moveTo(150, 750);
+  ctx.fillRect(100, 50, 300, 20);
+  ctx.stroke();
+}, 2000);
+
+/* Cuerda */
+setTimeout(function () {
+  ctx.beginPath();
+  ctx.moveTo(400, 50);
+  ctx.fillRect(400, 50, 3, 150);
+  ctx.stroke();
+}, 3000);
+
+/* cabeza */
+setTimeout(function () {
+  ctx.fillStyle = "#DD9F98";
+  ctx.beginPath();
+  ctx.arc(410, 200, 50, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.stroke();
+}, 4000);
+
+/* Cuerpo */
+setTimeout(function () {
+  ctx.beginPath();
+  ctx.moveTo(400, 250);
+  ctx.lineTo(400, 450);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(400, 450);
+  ctx.lineTo(350, 600);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(400, 450);
+  ctx.lineTo(450, 600);
+  ctx.stroke();
+}, 5000);
+
+setTimeout(function () {
+  ctx.beginPath();
+  ctx.moveTo(400, 250);
+  ctx.lineTo(350, 400);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(400, 250);
+  ctx.lineTo(450, 400);
+  ctx.stroke();
+}, 6000);
 
 nuevo.addEventListener("click", function (event) {
   event.preventDefault();
-
   location.href = "../pages/juego.html";
 });
 
 desistir.addEventListener("click", function (event) {
   event.preventDefault();
-
-  var salir = confirm("¿deceas salir del juego?");
-
-  if (salir == true) {
-    location.href = "../index.html";
-  }
+  location.href = "../index.html";
 });
 
-/*
-setTimeout(function(){
-    img.src = "https://i.ibb.co/rpr10c5/agua2.png";
-}, 900);
-
-setTimeout(function(){
-    img.src = "https://i.ibb.co/hdTgxVt/agua3.png";
-}, 1900);
-
-setTimeout(function(){
-    img.src = "https://i.ibb.co/ZYLM31Y/agua4.png";
-}, 2900);
-
-setTimeout(function(){
-    img.src = "https://i.ibb.co/2YfqNKc/agua5.png";
-}, 3900);
-
-setTimeout(function(){
-    img.src = "https://i.ibb.co/D71zLPP/agua6.png";
-}, 4900);
-
-setTimeout(function(){
-    img.src = "https://i.ibb.co/C1D9M12/aguaf.png";
-}, 5900);
-
-//setTimeout(function(){alert("Has Perdido");},6500)
-*/
+texto.addEventListener("change", function () {
+});

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="" />
     <title>Document</title>
     <link rel="stylesheet" href="../generales.css" />
     <link rel="stylesheet" href="../css/juego.css" />
@@ -11,30 +11,13 @@
   </head>
   <body>
     <nav class="logoA">
-      <a href="../index.html"
-        ><img src="../img/Alura.png" alt="Icon-Alura"
-      /></a>
+      <a href="../index.html"><img src="../img/Alura.png" alt="Icon-Alura" /></a>
     </nav>
-    <div class="contenido">
-      <div id="imagen" class="canvas">
-        <img id="img" src="https://i.ibb.co/YB9Bhdy/agua1.png" alt="" />
-      </div>
-
-      <div class="palabra-clave">
-
-        <ul id="ul2">
-          <li><p>A</p><p><img src="../img/_.png"></p></li>
-        </ul>
-
-        <b id="errores" class="sub"></b>
-
-        <input id="letra" type="text" maxlength="1" autofocus/>
-      </div>
-
+      <canvas width="1200" height="750"></canvas>
+      <input id="texto" class="input" type="text" maxlength="1" placeholder="Ingrese letra" autofocus>
       <div class="botones">
-        <button id="nuevo-juego" class="btn">Nuevo juego</button>
-        <button id="desistir" class="btn-segundario">Desistir</button>
+        <button id="nuevo" class="btn">Nuevo Juego</button>
+        <button id="desistir" class="btn">Desistir</button>
       </div>
-    </div>
   </body>
 </html>
