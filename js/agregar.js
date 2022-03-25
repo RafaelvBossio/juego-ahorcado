@@ -1,31 +1,19 @@
-var errores = document.querySelector("#errores");
-errores.classList.add("invisible");
+import { palabras, storage } from "./agregarPalabra.js";
 
-var guardar = document.querySelector("#guardar");
-var cancelar = document.querySelector("#cancelar");
-var palabra = document.querySelector("#palabra");
-var palabras = [];
+const guardar = document.querySelector("#guardar");
+const cancelar = document.querySelector("#cancelar");
+const frase = document.querySelector("#palabra");
 
-function agregarPalabras(palabra) {
-    palabras.push(palabra);
-    console.log(cantidadPalabras());
-  }
-
-  function cantidadPalabras() {
-    return palabras.length;
-  }
-
-guardar.addEventListener("click", function(event){
-    event.preventDefault();
-
-    agregarPalabras(palabra.textContent);
-    cantidadPalabras();
-
-    location.href = "../pages/juego.html";
+guardar.addEventListener("click", (e) => {
+    e.preventDefault();
+    var valor = frase.value.toUpperCase();
+    palabras.push(valor);
+    console.log(palabras);
+    storage();
+    frase.value = "";
 });
 
-cancelar.addEventListener("click", function(event){
-    event.preventDefault();
-
+cancelar.addEventListener("click", (e) => {
+    e.preventDefault();
     location.href = "../index.html";
 });

@@ -1,0 +1,20 @@
+{
+  "name": "ahogado",
+  "version": "1.0.0",
+  "description": "Reto Alura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelvBossio/juego-ahogado.git"
+  },
+  "author": "Rafael Bossio",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/RafaelvBossio/juego-ahogado/issues"
+  },
+  "homepage": "https://github.com/RafaelvBossio/juego-ahogado#readme"
+}
