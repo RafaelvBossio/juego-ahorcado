@@ -11,8 +11,10 @@ var ctx = pantalla.getContext("2d"); // necesario para poder empezar a dibujar e
 let palabra = palabras[elegida()];
 var incorrectas = [];
 var errores = 0;
-var win = [];
+var win = palabra.split("");
 var frase = palabra.split("");
+
+console.log(win);
 
 function toggleFullScreen() {
   if (!document.fullscreenElement) {
@@ -40,7 +42,6 @@ function giones(cantidad, ma, mb, inicio, fin) {
     inicio += 50;
   }
 }
-
 giones(palabra.length, 600, 600, 630, 600);
 
 function elegida() {
@@ -50,11 +51,27 @@ function elegida() {
 
 var existe = false;
 var considencias = [];
+let continuar = frase;
+let num = 0;
 
-/*Falta terminar solo almacena las pociciones donde se encuentan las letras acertadas*/
+console.log(num);
+
+function auth(opc) {
+  for (var i = 0; i < palabra.length; i++) {
+    if (win[i] == opc) {
+      continuar[i] = true;
+      num += 1;
+      if (continuar[i] == true && continuar.length == num) {
+        ganaste();
+      }
+    }
+  }
+}
+
 function correcta(opc) {
   let posicion = [];
   for (var i = 0; i < palabra.length; i++) {
+    var esta = false;
     if (opc == palabra[i]) {
       posicion.push(i);
       dibujarLetra(palabra[i], 50.3 * i);
@@ -69,7 +86,7 @@ function incorrecta(opc) {
   for (var i = 0; i < opc.length; i++) {
     dibujarErrores(opc[i], 20.5 * i);
   }
-  if(!incorrectas.length == 7){
+  if (!incorrectas.length == 7) {
     perdiste();
   } else {
     errores += 1;
@@ -162,7 +179,6 @@ export function mal(errores) {
 
     perdiste();
     texto.disabled = true;
-    texto.placeholder = "Perdiste";
   }
 }
 
@@ -185,33 +201,42 @@ function dibujarErrores(letra, distancia) {
   ctx.fill();
 }
 
-function ganaste() {
-  ctx.textAlign = "left";
-  ctx.strokeStyle = "#62C247";
-  ctx.font = "small-caps bold 45px arial"
-  ctx.strokeText("Felicidades", 550, 410);
-
-  ctx.textAlign = "left";
-  ctx.fillStyle = "#62C247";
-  ctx.font = "small-caps bold 45px arial"
-  ctx.fillText("has ganado", 600, 450);
-}
 
 function perdiste() {
   ctx.textAlign = "left";
   ctx.strokeStyle = "tomato";
-  ctx.font = "small-caps bold 45px arial"
+  ctx.font = "small-caps bold 45px arial";
   ctx.strokeText("Que mala suerte", 550, 410);
 
   ctx.textAlign = "left";
   ctx.fillStyle = "tomato";
-  ctx.font = "small-caps bold 45px arial"
+  ctx.font = "small-caps bold 45px arial";
   ctx.fillText("has perdido", 600, 450);
+
+  texto.classList.add("bye");
+}
+
+function ganaste() {
+  ctx.textAlign = "left";
+  ctx.strokeStyle = "#62C247";
+  ctx.font = "small-caps bold 45px arial";
+  ctx.strokeText("Felicidades", 550, 410);
+
+  ctx.textAlign = "left";
+  ctx.fillStyle = "#62C247";
+  ctx.font = "small-caps bold 45px arial";
+  ctx.fillText("has ganado", 600, 450);
+
+  texto.classList.add("bye");
 }
 
 nuevo.addEventListener("click", function (event) {
   event.preventDefault();
   location.href = "../pages/juego.html";
+});
+
+canvas.addEventListener("click", () => {
+  texto.focus();
 });
 
 desistir.addEventListener("click", function (event) {
@@ -222,21 +247,26 @@ desistir.addEventListener("click", function (event) {
 texto.addEventListener("change", function () {
   let letra = this.value.toUpperCase();
   let bandera = correcta(letra);
+  let ingresadas = [];
+  ingresadas.push(letra);
 
+  auth(letra);
   if (this.value != "") {
     correcta(letra);
-    for(var i = 0; i < frase.length; i++){
-      if(frase[i] == letra){
+    for (var i = 0; i < frase.length; i++) {
+      if (frase[i] == letra) {
         win.push(letra);
+        if (win.length == palabra.length) {
+          ganaste();
+        }
       }
     }
   }
 
-  if (bandera.length == 0){
+  if (bandera.length == 0) {
     incorrectas.push(this.value);
     incorrecta(incorrectas);
   } else {}
-  console.log(win);
   this.value = "";
 });
 

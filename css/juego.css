@@ -1,20 +1,29 @@
-.logoA{
-    width: 90%;
-    position:absolute;
+input {
+    color: transparent;
+    text-shadow: 0 0 0 #2196f3;
+
+    &:focus {
+        outline: none;
+    }
 }
 
-.logoA img{
+.logoA {
+    width: 90%;
+    position: absolute;
+}
+
+.logoA img {
     height: 50px;
     margin: 0px 50px;
 }
 
-.palabra-clave ul{
+.palabra-clave ul {
     text-decoration: none;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
 .palabra-clave ul li {
@@ -23,32 +32,39 @@
     justify-content: center;
 }
 
-.palabra-clave ul li p{
+.palabra-clave ul li p {
     font-size: 3vh;
     width: auto;
     padding-left: 12px;
     text-align: center;
 }
 
-.palabra-clave ul li img{
+.palabra-clave ul li img {
     width: 3vw;
 }
 
-.input{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    text-align: center;
+.input {
+    width: auto;
+    height: 50px;
+    font-size: 39px;
+    font-weight: bolder;
+    text-align: left;
     outline: none;
     border: none;
-    position:static;
-    bottom: 1;
+    position: absolute;
+    top: 300px;
+    margin-left: 660px;
     background-color: transparent;
-    text-transform:capitalize;
+    text-transform: uppercase;
 }
 
-.sub{
+.input::placeholder {
+    font-size: 20px;
+    text-transform: initial;
+    color: rgba(210, 217, 218, 0.596);
+}
+
+.sub {
     display: flex;
     justify-content: center;
     letter-spacing: 10px;
@@ -57,64 +73,69 @@
     margin-top: 5px;
 }
 
-.botones{
-    margin: 30px 0px 20px;
+.botones {
+    margin: 10px 0px 20px;
 }
 
-canvas{
+canvas {
     display: flex;
     align-items: center;
     margin: auto;
+    transition: 1s;
 }
 
-div{
+.bye{
+    display: none;
+}
+
+div {
     display: flex;
     gap: 10px;
     padding: 0px 5rem;
 }
 
-@media only screen and (min-width: 300px){
-    .contenido{
+@media only screen and (min-width: 300px) {
+    .contenido {
         width: 90%;
         padding: 0px;
     }
 
-    .logoA img{
+    .logoA img {
         height: 30px;
         margin: 0px 10px;
     }
 
-    .botones{
+    .botones {
         flex-direction: column;
     }
 }
 
-@media only screen and (min-width: 500px){
-    .contenido{
+@media only screen and (min-width: 500px) {
+    .contenido {
         width: 50%;
     }
 }
 
-@media only screen and (min-width: 700px){
-    .contenido{
+@media only screen and (min-width: 700px) {
+    .contenido {
         width: 50%;
     }
 
-    .logoA img{
+    .logoA img {
         height: 50px;
         margin: 0px 50px;
     }
 
-    .botones{
+    .botones {
         flex-direction: row;
     }
 }
 
-@media only screen and (min-width: 1000px){
-    .contenido{
+@media only screen and (min-width: 1000px) {
+    .contenido {
         width: 50%;
     }
 
-    .botones{
+    .botones {
         flex-direction: row;
-}
+    }
