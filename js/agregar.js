@@ -11,6 +11,8 @@ guardar.addEventListener("click", (e) => {
     console.log(palabras);
     storage();
     frase.value = "";
+
+    location.href = "../juego.html";
 });
 
 cancelar.addEventListener("click", (e) => {
